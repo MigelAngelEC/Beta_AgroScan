@@ -1,0 +1,465 @@
+    /* Container no map*/
+
+    .container-primary {
+        padding-top: 60px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 15px;
+    }
+
+    /** SIDEBAR */
+
+    .main-container-map {
+        height: calc(100vh - 61px);
+    }
+
+    .sidebar {
+        background-color: rgba(34, 45, 50, 1);
+        height: 100%;
+        left: 0px;
+        transition: all .4s;
+        position: fixed;
+        width: 260px;
+        z-index: 50;
+    }
+
+    .ocultar-sidebar {
+        left: -260px;
+    }
+
+    .sombra-sidebar {
+        -webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.16);
+        -moz-box-shadow: 2px 0px 9px 0px rgba(0, 0, 0, 0.16);
+        box-shadow: 2px 0px 9px 0px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-sidebar {
+        background-color: rgba(34, 45, 50, 1);
+        border-radius: 0px 5px 5px 0px;
+        cursor: pointer;
+        left: 100%;
+        width: 25px;
+        height: 50px;
+        position: absolute;
+    }
+
+    .btn-sidebar i {
+        display: block;
+        color: #fff;
+        display: block;
+        font-size: 1.2em;
+        line-height: 2.5;
+        text-align: center;
+    }
+
+    .fas {
+        padding-top: 0px;
+        transition: left 0.9s ease, rotate 8s ease;
+    }
+
+    .sidebar-container {
+        color: #fff;
+        padding: 15px;
+        height: 90%;
+        overflow: auto;
+    }
+
+    .sidebar-container dd,
+    .sidebar-container p,
+    .sidebar-container dt {
+        margin-bottom: .2rem;
+    }
+
+    #myMap {
+        height: 100%;
+        z-index: 5;
+    }
+
+    /* LOGIN */
+
+    #fondo {
+        height: 100vh;
+        min-width: 100%;
+        font-family: "Lato", sans-serif;
+    }
+
+    #fondo a {
+        color: #3684bc;
+        display: inline-block;
+        text-decoration: none;
+        padding-left: 0px;
+    }
+
+    .titulo {
+        color: #4f4f52;
+        border-bottom: 2px solid #5fbae9;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 30px 0px 10px 0px;
+    }
+
+    .size-options {
+        font-size: 13px;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100%;
+        /*  padding-top: 40px; */
+        background-image: url('../img/background-login.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .logo {
+        padding-top: 30px;
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    #formContent {
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        background: rgba(256, 256, 256, 1);
+        /*     min-height: 600px; */
+        width: 93%;
+        max-width: 360px;
+        position: relative;
+        -webkit-box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.3);
+        text-align: center;
+        /*         box-sizing: content-box; */
+    }
+
+    #formFooter {
+        margin-top: 15px;
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 22px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    /* FORM TYPOGRAPHY*/
+
+    #btn-ingresar {
+        width: 100%;
+        margin: 0px 0px;
+    }
+
+    /* HERRAMIENTAS MAPA */
+
+    #herramientas_map {
+        background-color: #fff;
+        float: none;
+        display: inline-flex;
+        margin-left: 50px;
+    }
+
+    /* WIDGET MAPAS */
+
+    .leaflet-top {
+        margin-top: 50px;
+    }
+
+    .capas-top {
+        position: absolute;
+        z-index: 9;
+        margin-top: 1%;
+        width: 100%;
+    }
+
+    .widget-capas {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .widget-capas-container {
+        text-align: center;
+        margin: 3px;
+    }
+
+    .select-capa,
+    .container-select {
+        padding: 6px;
+        background: #94C11F;
+        color: #fff;
+    }
+
+    .container-select {
+        display: inline-block;
+        border-radius: 2px;
+        min-width: 150px;
+    }
+
+    .select-capa {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+    }
+
+    .select-capa:hover {
+        cursor: pointer;
+    }
+
+    .capa-rigth {
+        display: none
+    }
+
+
+    #button-wrapper {
+        position: absolute;
+        z-index: 9;
+        bottom: 15%;
+        right: 44%;
+       /*  right: 15%; */
+       
+      /*   width: 50%; */
+    }
+
+
+    /* SWITCH */
+
+    .switch {
+        position: absolute;
+        display: inline-block;
+        width: 50px;
+        height: 22px;
+        /*  padding-top: 20px;*/
+    }
+
+    .switch input {
+        display: none;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+    }
+
+    /* */
+
+    .leaflet-sbs-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        cursor: ew-resize;
+        pointer-events: auto;
+        border: 1px solid #ddd;
+        background-image: url("./_map_css/images/drone2.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+    }
+
+    .leaflet-sbs-range::-ms-thumb {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        cursor: ew-resize;
+        pointer-events: auto;
+        border: 1px solid #ddd;
+        background-image: url("./_map_css/images/drone2.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+    }
+
+    .leaflet-sbs-range::-moz-range-thumb {
+        padding: 0;
+        right: 0;
+        background: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        cursor: ew-resize;
+        pointer-events: auto;
+        border: 1px solid #ddd;
+        background-image: url("./_map_css/images/drone2.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+    }
+
+    .leaflet-sbs-range:disabled::-moz-range-thumb {
+        cursor: default;
+    }
+
+    .leaflet-sbs-range:disabled::-ms-thumb {
+        cursor: default;
+    }
+
+    .leaflet-sbs-range:disabled::-webkit-slider-thumb {
+        cursor: default;
+    }
+
+    .leaflet-sbs-range:disabled {
+        cursor: default;
+    }
+
+    .leaflet-sbs-range:focus {
+        outline: none !important;
+    }
+
+    .leaflet-sbs-range::-moz-focus-outer {
+        border: 0;
+    }
+
+    /* Preguntas frecuentes */
+
+    .card {
+        margin-top: 20px;
+    }
+
+    /* Boton de descargar */
+
+    .btn-agroDescarga {
+        -webkit-border-radius: 10rem !important;
+        border-radius: 10rem !important;
+        padding: .3rem 1.3rem !important;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    /* Preguntas frecuentes */
+    .text-green {
+        color: green;
+    }
+
+    #loading {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(192, 192, 192, 0.5);
+        background-image: url("http://www.viverolosmorros.com.co/images/loader.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .menuContentp {
+        background-color: #222D32;
+        background-image: -moz-linear-gradient(center top, #222D32, #222D32, #222D32, #222D32);
+        border: 1px solid #222D32;
+        bottom: 0px;
+        left: auto;
+        right: 7%;
+        padding: 0 15px 5px;
+        position: fixed;
+        width: 77%;
+        -moz-border-radius-topright: 10px;
+        -moz-border-radius-topleft: 10px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        z-index: 10
+    }
+
+    .menuContentp div.sliderp {
+        position: absolute;
+        background-color: #222D32;
+        background-image: -moz-linear-gradient(center top, #ddd, #FFF);
+        border: 1px solid #222D32;
+        border-bottom: none;
+        cursor: pointer;
+        float: right;
+        height: 25px;
+        margin: -25px 965px 0 0;
+        padding: 1px 30px;
+        width: 10px;
+        z-index: 2001;
+        -moz-border-radius-topright: 7px;
+        -moz-border-radius-topleft: 7px;
+        border-top-right-radius: 7px;
+        border-top-left-radius: 7px;
+        text-align: left;
+    }
+
+    .menuContentp div.sliderp i {
+        padding-bottom: 10px;
+        z-index: 10
+    }
+
+    .btn-group-xs>.btn,
+    .btn-xs {
+        padding: .25rem .4rem;
+        font-size: .875rem;
+        line-height: .5;
+        border-radius: .2rem;
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    .button {
+        background: transparent;
+        border: none !important;
+    }
+
+    ​ .gm-style iframe {
+        width: 0px !important;
+        height: 0px !important;
+    }
