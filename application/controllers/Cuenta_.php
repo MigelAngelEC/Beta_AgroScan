@@ -22,7 +22,15 @@ class Cuenta_ extends CI_Controller {
     $this->load->view('plantilla_mapas/menu');
     $this->load->view('gestor-cuenta/gestorCuenta'); 
     $this->load->view('plantilla/footer');
+  
     
 }
+    // public function index (){
+    //     $resultado = $this->db->get('tb_cultivo');
+    //     $data = array('consulta'=>$resultado);
+    //     $this->load->view('gestor-cuenta/tabla_cuenta',$data); 
+    // }
+
+
 
 }

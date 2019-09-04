@@ -1,2 +1,2 @@
-# Beta_AgroScan
-Beta Testing AgroScan 
+# app.agroscan
+App AgroScan 2019

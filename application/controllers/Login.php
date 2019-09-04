@@ -11,23 +11,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-
-
-
-
     function __construct(){
 
         parent::__construct();
 		$this->load->model('M_monitor');
 		$this->load->model('M_login');
+		$this->load->model('M_monitorEmpresa');
 		
     }
-
-
-
-	public function index($page = 'login')
-
-	{
+	public function index($page = 'login'){
 
 	if ( ! file_exists(APPPATH.'views/'.$page.'.php')){
 
@@ -54,6 +46,21 @@ class Login extends CI_Controller {
 		$this->load->view('plantilla/footer');
 		}
 	}
+	public function monitorEmpresa(){
+		$id=$this->session->userdata('id');
+		if(!$id){
+			redirect(base_url());
+		}else{
+
+			$this->load->model('M_monitorEmpresa');
+			$data2['company']=$this->M_monitorEmpresa->company();
+			$this->load->view('plantilla/header');	
+			$this->load->view('monitorEmpresa',$data2);
+		}
+	
+
+	}
+
 	public function gestormarcas(){
 		$id=$this->session->userdata('id');
 		if(!$id){
@@ -103,33 +110,20 @@ class Login extends CI_Controller {
 	public function ingresar(){
 
 		 if ($this->input->is_ajax_request()) {
-
 			$usuario = $this->input->post('txtEmail');
-
 			$clave = md5($this->input->post('txtclave'));
-
 			$res = $this->M_login->ingresar($usuario,$clave);
-
 			if($res){
-
 				$data = [
-
 				"id" => $res->id_usuario,
-
         		"nombre" => $res->nombre_cliente,
-
 				"empresa" => $res->id_empresa,
-
 				"perfil" => $res->id_perfil,
-
 				"login" => TRUE
-
 				];
-
 				$this->session->set_userdata($data);
 					echo('1');
 			}else{
-
 				$res2=$this->M_login->ingresarAdmin($usuario,$clave);
 				if ($res2){	
 					$data=[
@@ -139,10 +133,19 @@ class Login extends CI_Controller {
 					$this->session->set_userdata($data);
 					echo('2');
 				}else{
-					echo ('0');
+					$res3=$this->M_login->ingresarEmpresa($usuario,$clave);
+					if($res3){
+						$data = [
+							"id" => $res3->id_empresa,
+							"nombre" => $res3->nombre_empresa,
+							"login" => TRUE
+							];
+							$this->session->set_userdata($data);
+								echo('3');
+					}else{
+						echo('0');
+					}
 				}
-				
-
 			}
 
 		 }else{
