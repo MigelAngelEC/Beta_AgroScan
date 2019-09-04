@@ -3,18 +3,21 @@ function login() {
         e.preventDefault();
         var parametros = $(this).serialize();
         $.ajax({
-            type: "POST",
+            type: "post",
             url: $(this).attr('action'),
             datatype: "json",
             data: parametros,
             success: function(datos) {
                 if (datos == "1") {
                     $(location).attr('href', '/Dashboard');
+                    
                 } else if(datos=="2") {
                     $(location).attr('href', '/Login/monitordash');
-                } else if(datos=="3"){
+                }
+                else if(datos=="3") {
                     $(location).attr('href', '/Login/monitorEmpresa');
-                }else{
+                }
+                else{
                     msj = "Nick o contraseña erroneos";
                     $("#errorLogin").removeAttr("hidden").html(msj);
                     setTimeout(function() {
@@ -24,7 +27,7 @@ function login() {
             }
         });
     });
-}
+};
 
 function enviar_Mail_Soporte() {
     $("#form_support").on("submit", function(e) {
@@ -47,7 +50,7 @@ function enviar_Mail_Soporte() {
             }
         });
     });
-}
+};
 
 $(document).ready(function() {
     login();

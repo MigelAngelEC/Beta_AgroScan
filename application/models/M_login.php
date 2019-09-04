@@ -19,7 +19,7 @@ class M_login extends CI_Model
 		usu.correo_usuario, usu.id_empresa, usu.id_perfil, usu.id_usuario
 		FROM tb_cliente clie
 		INNER JOIN tb_usuarios usu ON clie.id_usuario = usu.id_usuario
-		WHERE usu.correo_usuario = '".$usuario."' AND usu.clave_usuario = '".$clxave."'
+		WHERE usu.correo_usuario = '".$usuario."' AND usu.clave_usuario = '".$clave."'
 		AND usu.id_perfil = '5' AND usu.permiso_acceso = '1' ";
 		$result = $this->db->query($consulta);
 		if ($result->num_rows() == 1) {
@@ -45,7 +45,7 @@ class M_login extends CI_Model
 	public function ingresarEmpresa($uEmpresa,$uEclave){
 		$queryEmpresa="SELECT empresa.id_empresa,empresa.correo_empresa,empresa.clave_empresa
 		FROM tb_empresa as empresa 
-		WHERE empresa.corre_empresa='".$uEmpresa."' 
+		WHERE empresa.correo_empresa='".$uEmpresa."' 
 		AND empresa.clave_empresa='".$uEclave."'";
 		$empress=$this->db->query($queryEmpresa);
 

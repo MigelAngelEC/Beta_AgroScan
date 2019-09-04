@@ -1,6 +1,5 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123072858-1"></script>
-<script src="<?php echo base_url();?>_ajax/login.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -23,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Titulos -->
             <h5 class="titulo text-center">Iniciar sesión</h5>
             <div class="col-10 col-md-9" style="margin-left: auto; margin-right: auto">
-                 <form id="loginform" action="Login/ingresar"  method="POST">
+              <form id="loginform" action="index.php/Login/ingresar"  method="POST">
                       <div class="md-form form-group mt-5">
                       <input id="txtEmail" name="txtEmail" type="email" class="form-control" required>
                           <label  for="txtEmail" >Correo electronico</label>
@@ -36,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="md-form form-group mt-5">
                           <button id="btn-ingresar" type="submit" class="btn btn-primary">Iniciar sesión</button>
                       </div>
-                 </form>
+            </form>
           </div>
           <!-- Material form group -->
             <div class="alert alert-danger" id="errorLogin" hidden="true"></div>

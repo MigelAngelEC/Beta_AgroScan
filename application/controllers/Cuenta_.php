@@ -18,8 +18,6 @@ class Cuenta_ extends CI_Controller {
 
 
 	public function cuenta(){   
-    $this->load->view('plantilla_mapas/header');
-    $this->load->view('plantilla_mapas/menu');
     $this->load->view('gestor-cuenta/gestorCuenta'); 
     $this->load->view('plantilla/footer');
   
