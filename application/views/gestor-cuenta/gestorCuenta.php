@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,6 +23,7 @@
     <script src="https://cdn3.devexpress.com/jslib/19.1.5/js/vectormap-data/usa.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>_assets/js/_vectormap_js/data.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>_assets/js/_vectormap_js/index.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>_assets/js/_vectormap_js/obtener_datos.js"></script>
     <link href="<?php echo base_url();?>_assets/css/_vectormap_css/styles.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 
@@ -37,44 +39,92 @@ echo "</br>";
     <div class="col-sm">
     <form class="form-inline md-form form-sm mt-0">
   <i class="fas fa-search" aria-hidden="true"></i>
-  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+  <input  id="myInputs" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search " onkeyup="myFunction()"
     aria-label="Search">
 </form>
-    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+  width="100%">
   <thead>
+    
     <tr>
-      <th class="th-sm">#
-      </th>
-      <th class="th-sm">nombre_cult
-      </th>
-      <th class="th-sm">descripciocult
-      </th>
-      <th class="th-sm">pais_cult
-      </th>
-      <th class="th-sm">ciudad_cult
-      </th>
-      <th class="th-sm">Acción
-      </th>
+    <th scope="col">#</th>
+    <th scope="col">Hacienda</th>
+    <th scope="col">Pais</th>
+    <th scope="col">Ciudad</th>
+    <th scope="col">Acción</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="myTable">
       <?php
+      $numeroc =0;
       $query  =$this->db->query ( 'SELECT id_cultivo,nombre_cult,descripcion_cult,pais_cult,ciudad_cult FROM tb_cultivo' );
-    //  $row = $query->row();
-     while ($row = $query->unbuffered_row()){
+     
+      while ($row = $query->unbuffered_row('array'))
+{
+//         echo $row->title;
+//         echo $row->name;
+//         echo $row->body;
+// }
+//       foreach ($query->result_array() as $row)
+//       {
+              $numeroc = $numeroc + 1;
+              echo '<tr class="boton">';
+              echo '<td scope="row">';
+              echo $row['id_cultivo'];
+              echo '</td>';  
+              echo '<td>';
+              echo $row['nombre_cult'];
+              echo '</td>';
+              echo '<td>';
+              echo $row['pais_cult'];
+              echo '</td>';
+              echo '<td>';   
+              echo $row['ciudad_cult'];
+              echo '</td>';
+              echo '<td>';
+              echo'<a class="btn btn-success btn-small" onclick="showTableData()"><i class="material-icons left"></i>cliente</a>';
+              echo '</td>';
+              echo '<td style="display:none;">';
+              echo $row ['bouns_cult'];
+              echo '</td>';
+              echo '<td style="display:none;">';
+              echo $row ['id_cultivo'];
+              echo '</td>';
+              echo '</tr>';
+      }
+    
+
 
     ?>
-     <tr>
-        <th><?php echo $row->id_cultivo;?></th>
-        <th><?php echo $row->nombre_cult;?></th>
-        <th><?php echo $row->descripcion_cult;?></th>
-        <th><?php echo $row->pais_cult;?></th>
-        <th><?php echo $row->ciudad_cult;?></th>
-     </tr>
-    <?php
-    }
-    $row = $query->row(5);
-    ?>
+     <!-- <?php
+  $numeroc = 0;
+  $sql = "SELECT * FROM `tb_cultivo`";
+  $result = mysqli_query($conn, $sql);
+  $resultcheck = mysqli_num_rows($result);
+  if ($resultcheck > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          $numeroc = $numeroc + 1;
+          echo'<tr class= boton>';
+          echo '<td scope="row">';
+          echo $row ['id_cultivo'];
+          echo '</td>';
+          echo'<td>';
+          echo $row ['nombre_cult'];
+          echo'</td>';
+          echo'<td>';
+          echo $row ['descripcion_cult'];
+          echo'</td>';
+          echo'<td>';
+          echo $row ['ciudad_cult'];
+          echo'</td>';
+          echo'<td>';
+          echo'<a class="waves-effect waves-light btn-small light-green darken-1"onclick="showTableData()"><i class="fas fa-map-marker-alt" color="dark"></i>Cliente</a>';
+          echo'</td>';
+          echo'</tr>';
+      }
+     
+  }
+  ?> -->
     <tbody>
 </table>
     </div>
@@ -86,9 +136,39 @@ echo "</br>";
 </body>
 </html>
 <!-- SCRIPTS -->
+<script>
+            function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInputs");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+    </script>
+<script>
+//Script for Button Search
+        var wage = document.getElementById("myInputs");
+        wage.addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                showTableData();
+                e.preventDefault();
+            }
+        }, false);
+</script>
+
 
 <!-- JQuery -->
-
 <!-- <script type="text/javascript" src="<?php echo base_url();?>_assets/js/jquery-3.4.1.min.js"></script> -->
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="<?php echo base_url();?>_assets/js/popper.min.js"></script>
@@ -96,7 +176,6 @@ echo "</br>";
 <script type="text/javascript" src="<?php echo base_url();?>_assets/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="<?php echo base_url();?>_assets/js/mdb.min.js"></script>
-
 <!-- MDBootstrap Datatables  -->
 <script type="text/javascript" src="<?php echo base_url();?>_assets/js/addons/datatables.min.js"></script>
 

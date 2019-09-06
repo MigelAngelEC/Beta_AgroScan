@@ -54,7 +54,7 @@ class Login extends CI_Controller {
 
 			$this->load->model('M_monitorEmpresa');
 			// $data2['company']=$this->M_monitorEmpresa->company();
-			$this->load->view('plantilla/header');	
+			// $this->load->view('plantilla/header');	
 			// $this->load->view('monitorEmpresa',$data2);
 			$this->load->view('monitorEmpresa');
 		}
