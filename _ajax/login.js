@@ -14,9 +14,6 @@ function login() {
                 } else if(datos=="2") {
                     $(location).attr('href', '/Login/monitordash');
                 }
-                else if(datos=="3") {
-                    $(location).attr('href', '/Login/monitorEmpresa');
-                }
                 else{
                     msj = "Nick o contraseña erroneos";
                     $("#errorLogin").removeAttr("hidden").html(msj);

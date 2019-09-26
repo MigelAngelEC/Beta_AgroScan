@@ -22,6 +22,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximumscale=1.0, user-scalable=no" />
   <title>AGROCLOUD - Tu cultivo en la nube</title>
   <link rel="shortcut icon" href="<?php echo base_url();?>_assets/img/agrocloud.ico" type="image/vnd.microsoft.icon">
+
+  <!--mapa-->
+  <script src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
+  <script src="<?php echo base_url();?>_assets/plantilla/dist/js/marker/marker.js"></script>
+  <script >
+      $(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= base_url()?>_assets/plantilla/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?= base_url()?>_assets/plantilla/dist/css/adminlte.min.css">
+  <!-- iconosplantilla -->
+  <link rel="shortcut icon" href="<?php echo base_url();?>_assets/plantilla/dist/img/avatar.png" type="image/vnd.microsoft.icon">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url()?>_assets/plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url()?>_assets/plantilla/dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="<?= base_url()?>_assets/plantilla/dist/js/demo.js"></script>
+
+
+  <!-- fin Referencia de plantilla-->
+
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDZqQIEyDlpqcYQ79AqZA9vt9-LnRzWZ0" async defer>
   </script>
   <!-- Font Awesome -->
@@ -31,12 +63,12 @@
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
     integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous">
   </script>
-<!-- FireBase -->
-<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-messaging.js"></script>
+  <!-- FireBase -->
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-messaging.js"></script>
   <!-- Popper JS  -->
   <script src="<?php echo base_url();?>_assets/js/popper.min.js"></script>
   <!-- BootBox JS -->

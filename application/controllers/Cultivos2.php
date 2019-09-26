@@ -39,10 +39,12 @@ class Cultivos2 extends CI_Controller {
 	public function index(){
 
         $this->load->view('plantilla/header');
+
         $this->load->view('plantilla/menu');
+
         $this->load->view('cultivos2');
+
         $this->load->view('plantilla/footer');
-        
 
 	}
 

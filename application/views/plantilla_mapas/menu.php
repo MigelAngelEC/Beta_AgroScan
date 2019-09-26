@@ -50,6 +50,13 @@
                             </font>
                         </a>
 
+                        <!-- Edición de datos de perfil cliente -->
+                        <a class="dropdown-item waves-effect waves-light" href="################">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Editar perfil</font>
+                            </font>
+                        </a>
+                        
                         <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Login/cerrar_sesion">
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">Cerrar sesión </font>
