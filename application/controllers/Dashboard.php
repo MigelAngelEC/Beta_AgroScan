@@ -59,6 +59,19 @@ class Dashboard extends CI_Controller
     {
         $this->load->view('mapa/insert');
     }
+<<<<<<< HEAD
+=======
+    public function insert(){
+		$this->load->view('mapa/insert');
+	}
+
+    public function cuenta(){
+        $this->load->view('gestor-cuenta/gestorCuenta');
+
+    }
+   
+
+>>>>>>> f2c3a92a977bc00f3c0c5537243be17075ad2c80
 
     public function cuenta()
     {
