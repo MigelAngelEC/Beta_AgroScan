@@ -110,10 +110,6 @@ class Mapa extends CI_Controller {
 
 
 
-
-
-    
-
     public function savePolygon(){
 
         $coordenadas = $_POST['coordenadas'];

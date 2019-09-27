@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- Titulos -->
             <h5 class="titulo text-center">Iniciar sesión</h5>
             <div class="col-10 col-md-9" style="margin-left: auto; margin-right: auto">
-              <form id="loginform" action="index.php/Login/ingresar"  method="POST">
+              <form id="loginform" action="<?php echo base_url();?>Login/ingresar"  method="POST">
                       <div class="md-form form-group mt-5">
                       <input id="txtEmail" name="txtEmail" type="email" class="form-control" required>
                           <label  for="txtEmail" >Correo electronico</label>

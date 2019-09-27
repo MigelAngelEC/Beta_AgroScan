@@ -1,0 +1,9 @@
+.btn-bor{
+    border-radius: 100px 100px 100px 100px;
+    -moz-border-radius: 100px 100px 100px 100px;
+    -webkit-border-radius: 100px 100px 100px 100px;
+    border: 2px solid #1d47f0;
+    color: #1d47f0;
+    width:80px;
+    height:30px;
+  }

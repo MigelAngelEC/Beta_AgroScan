@@ -9,9 +9,9 @@ function showTableData(){
         success: function(datos){
             if(datos=="1"){
                 $(location).attr('href','Mapa');
-            }else {
-                
-            }
+        }else {
+            
+        }
         }
 
     });
@@ -19,4 +19,4 @@ function showTableData(){
 }  
 $(document).ready(function(){
   showTableData();    
-});   
+});     

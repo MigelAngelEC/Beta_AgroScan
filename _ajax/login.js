@@ -27,7 +27,7 @@ function login() {
             }
         });
     });
-};
+}
 
 function enviar_Mail_Soporte() {
     $("#form_support").on("submit", function(e) {
@@ -50,7 +50,7 @@ function enviar_Mail_Soporte() {
             }
         });
     });
-};
+}
 
 $(document).ready(function() {
     login();

@@ -17,7 +17,6 @@ class M_cultivo extends CI_Model
 	public function listarCultivo($cliente){
 
 
-
 		$this->db->where('id_cliente', $cliente);
 
 		$result = $this->db->get('tb_cultivo');
@@ -123,6 +122,7 @@ class M_cultivo extends CI_Model
 		}
 
 	}
+
 
 
 }
