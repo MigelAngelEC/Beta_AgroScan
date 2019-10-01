@@ -54,7 +54,6 @@ class Login extends CI_Controller {
 		$this->load->view('plantilla/footer');
 		}
 	}
-<<<<<<< HEAD
 	public function monitorEmpresa(){
 		$id=$this->session->userdata('id');
 		if(!$id){
@@ -76,8 +75,6 @@ class Login extends CI_Controller {
 
 	}
 
-=======
->>>>>>> f2c3a92a977bc00f3c0c5537243be17075ad2c80
 	public function gestormarcas(){
 		$id=$this->session->userdata('id');
 		if(!$id){
