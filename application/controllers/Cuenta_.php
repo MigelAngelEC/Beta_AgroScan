@@ -18,7 +18,6 @@ class Cuenta_ extends CI_Controller {
 
 
 
-<<<<<<< HEAD
 	public function cuenta(){ 
     $this->load->view('plantilla/menu'); 
     $this->load->view('plantilla/header');  
@@ -33,18 +32,6 @@ class Cuenta_ extends CI_Controller {
     //     $data = array('consulta'=>$resultado);
     //     $this->load->view('gestor-cuenta/tabla_cuenta',$data); 
     // }
-=======
-	public function cuenta(){
-
-        $data['usuario'] = $this->M_cuenta->obtenerMarcas($this->session->userdata('id'));
-
-        $this->load->view('plantilla_mapas/header');   
-        $this->load->view('plantilla_mapas/menu');  
-        $this->load->view('gestor-cuenta/gestorCuenta',$data);
-        $this->load->view('plantilla/footer');
-        
-    }
->>>>>>> f2c3a92a977bc00f3c0c5537243be17075ad2c80
 
     public function prueba(){
 

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -127,70 +126,6 @@ echo "</br>";
     <div id="vector-map" class="col-sm"></div>
   </div>
 </div>
-=======
-<html>
-    <head>
-        <title>Dasboard Usuario</title>
-        <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))</script>
-    </head>
-    <body class="dx-viewport">
-        <section class="content">
-            <div class="container-fluid">
-
-                <!-- Dashboard -->
-                <div class="row">
-                    <!-- Perfil usuario -->
-                    <div class="col-3">
-                        <div class="card card-primary card-outline">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-                                  <img class="profile-user-img img-fluid img-circle"
-                                       src="<?php echo base_url(); ?>_assets/img/agrocloud.ico"
-                                       alt="User profile picture">
-                                </div>
-                                <h3 class="profile-username text-center"><?= $usuario[0]?></h3>
-                                <p class="text-muted text-center"><?= $usuario[1]?></p>
-                                <ul class="list-group list-group-unbordered mb-3">
-                                  <li class="list-group-item">
-                                    <b>Dirección</b> <a class="float-right"><?= $usuario[2];?></a>
-                                  </li>                                      
-                                </ul>
-                                <a href="<?php echo base_url();?>index.php/Login/cerrar_sesion" class="btn btn-primary btn-block"><b>Salir</b></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Planes -->
-                    <div class="col-9">                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h2>Planes</h2>
-                            </div>
-                            <div class="card-body">
-                                <div class="info-box mb-12">
-                                    <span class="info-box-icon bg-info elevation-1">
-                                      <i class=""></i>
-                                    </span>
-                                    <div class="info-box-content">
-                                      <span class="info-box-text">Plan activo</span>
-                                      <span class="info-box-number">1000
-                                        <small>Hectarea/s</small>
-                                      </span>
-                                    </div>
-                                    <span class="info-box-icon bg-info elevation-1">
-                                      <i class=""></i>
-                                    </span>
-                                    <div class="info-box-content">
-                                      <span class="info-box-text">Plan en uso</span>
-                                      <span class="info-box-number">
-                                        <?= $usuario[7]?>
-                                        <small>Hectarea/s</small>
-                                      </span>
-                                    </div>
-                                </div>                        
-                            </div>
-                        </div>                    
->>>>>>> f2c3a92a977bc00f3c0c5537243be17075ad2c80
 
                         <!-- Estado de plan-->
                         <div class="card">
