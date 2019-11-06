@@ -14,7 +14,6 @@ function login() {
                 } else if(datos=="2") {
                     $(location).attr('href', '/Login/monitordash');
                 }
-                else if(datos=="3") {
                 else{
                     msj = "Nick o contraseña erroneos";
                     $("#errorLogin").removeAttr("hidden").html(msj);
@@ -25,7 +24,7 @@ function login() {
             }
         });
     });
-}
+};
 
 function enviar_Mail_Soporte() {
     $("#form_support").on("submit", function(e) {
@@ -48,7 +47,7 @@ function enviar_Mail_Soporte() {
             }
         });
     });
-}
+};
 
 $(document).ready(function() {
     login();

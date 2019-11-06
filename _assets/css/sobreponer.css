@@ -1,0 +1,46 @@
+.uno {/*tranparencia total*/
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:-1;
+	opacity: 0.0;
+	filter: alpha(opacity=0);
+}
+
+.img1 {/*a*/
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:-1;
+}
+ 
+.img2 {/*sobreponer sobre a*/
+	position:absolute;
+	left:30px;
+	top:45px;
+	z-index:-1;
+}
+.img22 {/*sobreponer sobre a*/
+	position:absolute;
+	z-index:-1;
+}
+
+.img:hover {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+.img {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+#chch{
+ position: relative;
+}
+.sobre {
+ position:absolute;
+ top:0px;
+ left:0px;
+ border:none;
+}

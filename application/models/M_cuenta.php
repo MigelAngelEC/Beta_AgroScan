@@ -13,26 +13,18 @@ class M_cuenta extends CI_Model{
 	 * de acuerdo al id de sesión
 	 */
 	public function getCliente($cliente){
-		$this->db->where('id_cliente', $cliente);
+		$this->db->where('id_usuario',$cliente);
 		$result = $this->db->get('tb_cliente');
 		if ($result->num_rows() >= 1) {
 			return $result;
 		}else {
 			return false;
-		}
-	}
-
-	function obtenerUsuarios(){
-		$query=$this->db->get('tb_cliente');
-		if($query->num_rows()>0){
-			return $query;
-		}else{	
-			return false;
-		}
+		} 
 	}
 
 	public function obtenerMarcas($idUsuario){
-		$in=9;
+
+		$queryf='select nombre_cliente,apellido_cliente,direccion_cliente,nombre_cult,descripcion_cult,pais_cult,ciudad_cult,coor_marcas,area from tb_cultivo cu, tb_cliente cl, tb_marcas ma where cu.id_cliente='.$idUsuario.' and cu.id_cultivo=ma.id_cultivo GROUP BY cu.id_cultivo';
 		
 		$nombre_cliente		='';
 		$apellido_cliente	='';
@@ -47,50 +39,64 @@ class M_cuenta extends CI_Model{
 
 		$data[] = array();
 
-		$result = $this->db->query('select distinct * FROM tb_cliente u, tb_cultivo cu, tb_marcas m WHERE u.id_usuario=cu.id_cliente and cu.id_cliente=1 and m.id_cultivo=cu.id_cultivo and id_tipoMarcas=1');
+		$result = $this->db->query($queryf);
+
+		$data_cl = $this->getCliente($idUsuario);
 		
 
+		if ($result->num_rows() > 0) {
+        	for ( $i = 0; $i < $result->num_rows(); $i++ ) {
+				$nombre_cliente			= $result->Row(1)->nombre_cliente;
+				$apellido_cliente		= $result->Row(1)->apellido_cliente;
+				$direccion_cliente		= $result->Row(1)->direccion_cliente;
+				$nombre_cult[$i]		= $result->Row($i)->nombre_cult;
+				$descripcion_cult[$i]	= $result->Row($i)->descripcion_cult;
+				$pais_cult[$i]			= $result->Row($i)->pais_cult;
+				$ciudad_cult[$i]		= $result->Row($i)->ciudad_cult;
+				$coordenada[$i]			= explode(',',$result->Row($i)->coor_marcas);
+				$area 					= $area+$result->Row($i)->area;
+				
+			}
 
-		for ( $i = 0; $i < $result->num_rows(); $i++ ) {
-			$nombre_cliente			= $result->Row(1)->nombre_cliente;
-			$apellido_cliente		= $result->Row(1)->apellido_cliente;
-			$direccion_cliente		= $result->Row(1)->direccion_cliente;
-			$nombre_cult[$i]		= $result->Row($i)->nombre_cult;
-			$descripcion_cult[$i]	= $result->Row($i)->descripcion_cult;
-			$pais_cult[$i]			= $result->Row($i)->pais_cult;
-			$ciudad_cult[$i]		= $result->Row($i)->ciudad_cult;
-			$coordenada[$i]			= explode(',',$result->Row($i)->coor_marcas);
-			$area 					= $area+$result->Row($i)->area;
+			for ($i=0; $i <count($coordenada) ; $i++) {
+
+				$lat	= explode(":",$coordenada[$i][0]);
+				$long	= explode(":",$coordenada[$i][1]);
+				$coordenadas[$i][0] = substr($lat[1],0,-1);
+				$coordenadas[$i][1] = substr($long[1],0,-1);
+			}
 			
-		}
+			$data[0] = $nombre_cliente;
+			$data[1] = $apellido_cliente;
+			$data[2] = $direccion_cliente;
+			$data[3] = $nombre_cult;
+			$data[4] = $descripcion_cult;
+			$data[5] = $ciudad_cult;
+			$data[6] = $pais_cult;
+			$data[7] = $area;
+			$data[8] = $coordenadas;
 
-		for ($i=0; $i <count($coordenada) ; $i++) {
+			return $data;
 
-			$lat	= explode(":",$coordenada[$i][0]);
-			$long	= explode(":",$coordenada[$i][1]);
-			$coordenadas[$i][0] = substr($lat[1],0,-1);
-			$coordenadas[$i][1] = substr($long[1],0,-1);
-		}
-		
-		$data[0] = $nombre_cliente;
-		$data[1] = $apellido_cliente;
-		$data[2] = $direccion_cliente;
-		$data[3] = $nombre_cult;
-		$data[4] = $descripcion_cult;
-		$data[5] = $ciudad_cult;
-		$data[6] = $pais_cult;
-		$data[7] = $area;
-		$data[8] = $coordenadas;
+	    } else {
+	    	echo "vacio para: ".$idUsuario;
 
-		/*
-		foreach ($coordenadas as $value) {
-			echo "lat: ".$value[0].'<br>';
-			echo "lon: ".$value[1].'<br>';
-		}
-		
-		
-		*/
-		return $data;	
+	        return $data;
+	    }			
 	}
+
+
+    public function actualizarUsuario($idUsuario,$data){
+    	$this->db->where('id_usuario', $idUsuario);
+		$query1=$this->db->update('tb_cliente', $data);
+
+        
+		if ($query1) {
+			return true;
+		}else{
+			return false;
+		}
+    }
+
 }
 

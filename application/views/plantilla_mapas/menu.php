@@ -44,14 +44,14 @@
                         </font>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Cuenta_/cuenta">
+                        <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Cuenta_/">
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">Mi cuenta</font>
                             </font>
                         </a>
 
                         <!-- Edición de datos de perfil cliente -->
-                        <a class="dropdown-item waves-effect waves-light" href="################">
+                        <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Cuenta_/actualizar">
                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">Editar perfil</font>
                             </font>

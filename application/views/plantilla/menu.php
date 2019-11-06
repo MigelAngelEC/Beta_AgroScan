@@ -44,12 +44,11 @@
                         </font>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Cuenta_/cuenta">Cuenta
+                        <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Cuenta_/">Cuenta
 <!--                             <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">Mi cuenta </font>
                             </font> -->
                         </a>
-
 
                         <a class="dropdown-item waves-effect waves-light" href="<?php echo base_url();?>index.php/Login/cerrar_sesion">
                             <font style="vertical-align: inherit;">

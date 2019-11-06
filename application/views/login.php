@@ -15,14 +15,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="formContent" class="text-center">
 
             <!-- Logo -->
-            <div class="logo ">
-                <img src="<?php echo base_url();?>_assets/img/Logo_AGROCLOUDV1.png" class="img-fluid" alt="Logo" width="150"/>
+            <div class="logo">
+              <img src="<?php echo base_url();?>_assets/img/Logo-horizontal2.png" class="img-fluid"  alt="Logo" width="150"/>
             </div>
 
             <!-- Titulos -->
-            <h5 class="titulo text-center">Iniciar sesión</h5>
+            <h5 class="titulo text-center"><span class="size-options">Login </span></h5>
             <div class="col-10 col-md-9" style="margin-left: auto; margin-right: auto">
-              <form id="loginform" action="<?php echo base_url();?>Login/ingresar"  method="POST">
+              <form id="loginform" action="index.php/Login/ingresar"  method="POST">
                       <div class="md-form form-group mt-5">
                       <input id="txtEmail" name="txtEmail" type="email" class="form-control" required>
                           <label  for="txtEmail" >Correo electronico</label>
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="alert alert-danger" id="errorLogin" hidden="true"></div>
             <!-- Remind Passowrd -->
             <div id="formFooter">
-                <span class="size-options">¿Todavía no eres miembro? </span><a class="underlineHover size-options" href="#">Registrate aquí</a>
+                <span class="size-options">¿Todavía no eres miembro? </span><a class="underlineHover size-options" href="<?php echo base_url();?>index.php/Registro">Registrate aquí</a>
             </div>
         </div>
     </div>

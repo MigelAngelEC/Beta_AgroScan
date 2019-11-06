@@ -2,6 +2,17 @@
 <html lang="es">
 
 <head>
+  <style type="text/css">
+    #contenedor{
+     position: relative;
+    }
+    .sobre {
+     position:absolute;
+     top:0px;
+     left:0px;
+     border:none;
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123072858-1"></script>
   <script>
@@ -23,12 +34,15 @@
   <title>AGROCLOUD - Tu cultivo en la nube</title>
   <link rel="shortcut icon" href="<?php echo base_url();?>_assets/img/agrocloud.ico" type="image/vnd.microsoft.icon">
 
+
   <!--mapa-->
   <script src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
   <script src="<?php echo base_url();?>_assets/plantilla/dist/js/marker/marker.js"></script>
-  <script >
+  
+  <script>
+    // Basic example
       $(document).ready(function () {
-      $('#dtBasicExample').DataTable();
+      $('#dtBasicExample').DataTable( { "searching": true,"pageLength": 2});
       $('.dataTables_length').addClass('bs-select');
     });
   </script>
@@ -50,7 +64,8 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url()?>_assets/plantilla/dist/js/demo.js"></script>
 
-
+  <!--sobreponer imagen-->
+  <link type="text/css" href="<?php echo base_url();?>_assets/css/sobreponer.css" rel="stylesheet">
   <!-- fin Referencia de plantilla-->
 
 
@@ -125,3 +140,5 @@
   $("#sliderp").click();
 </script>
 <img id='loading' style="display:none" ; />
+<!--Referencias de edicion usuario-->
+<script src="<?= base_url()?>_assets/plantilla/dist/js/editarUsuario/validarCampo.js"></script>

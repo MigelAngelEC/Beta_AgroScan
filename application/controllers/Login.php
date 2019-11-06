@@ -54,27 +54,6 @@ class Login extends CI_Controller {
 		$this->load->view('plantilla/footer');
 		}
 	}
-	public function monitorEmpresa(){
-		$id=$this->session->userdata('id');
-		if(!$id){
-			redirect(base_url());
-		}else{
-
-			$this->load->model('M_monitorEmpresa');
-			$data2['company']=$this->M_monitorEmpresa->company();
-			// $this->load->view('plantilla/header');	
-			// $this->load->view('monitorEmpresa',$data2);
-			$this->load->view('plantilla_empresa/header');
-			$this->load->view('plantilla_empresa/barra');
-			$this->load->view('plantilla_empresa/menu');
-			$this->load->view('monitorEmpresa',$data2);
-			$this->load->view('plantilla_empresa/footer');
-
-		}
-	
-
-	}
-
 	public function gestormarcas(){
 		$id=$this->session->userdata('id');
 		if(!$id){

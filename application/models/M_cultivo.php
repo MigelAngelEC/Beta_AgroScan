@@ -16,10 +16,16 @@ class M_cultivo extends CI_Model
 
 	public function listarCultivo($cliente){
 
+		$sql='select * from tb_cultivo cu,tb_cliente cl where id_usuario='.$cliente.' AND cu.id_cliente=cl.id_cliente';
 
-		$this->db->where('id_cliente', $cliente);
+		//$this->db->where('id_cliente', $cliente);
 
-		$result = $this->db->get('tb_cultivo');
+		//$result = $this->db->get('tb_cultivo');
+		$result = $this->db->query($sql);
+
+
+
+		//$sql='select * from tb_cultivo cu,tb_cliente cl where id_usuario='.$cliente.' AND cu.id_cliente=cl.id_cliente GROUP by id_usuario';
 
 		if ($result->num_rows() >= 1) {
 
@@ -122,8 +128,6 @@ class M_cultivo extends CI_Model
 		}
 
 	}
-
-
 
 }
 
