@@ -116,6 +116,8 @@ class Login extends CI_Controller {
 
 				"id" => $res->id_usuario,
 
+				"id_cl" => $res->id_cliente,
+
         		"nombre" => $res->nombre_cliente,
 
 				"empresa" => $res->id_empresa,

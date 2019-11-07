@@ -118,39 +118,6 @@ function get() {
     	
 <div class="centrar">
 
-
-
-
-		<div class="fixed-action-btn direction-top" style="bottom: 45px; right: 24px;">
-          <a class="btn-floating btn-large red">
-            <i class="material-icons">mode_edit</i>
-          </a>
-          <ul>
-            <li>
-              <a class="btn-floating red" style="opacity: 0; transform: scale(0.4) translateY(40px) translateX(0px);">
-                <i class="material-icons">insert_chart</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating yellow darken-1" style="opacity: 0; transform: scale(0.4) translateY(40px) translateX(0px);">
-                <i class="material-icons">format_quote</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating green" style="opacity: 0; transform: scale(0.4) translateY(40px) translateX(0px);">
-                <i class="material-icons">publish</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating blue" style="opacity: 0; transform: scale(0.4) translateY(40px) translateX(0px);">
-                <i class="material-icons">attach_file</i>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-
-
 	<div class="card">
 		<div class="card-header">
 			<center>Datos</center>

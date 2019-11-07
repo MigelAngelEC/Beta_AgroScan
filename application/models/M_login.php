@@ -16,7 +16,7 @@ class M_login extends CI_Model
 
 	public function ingresar($usuario,$clave){
 
-		$consulta = 	" SELECT clie.nombre_cliente,
+		$consulta = 	" SELECT clie.nombre_cliente,clie.id_cliente,
 
 		usu.correo_usuario, usu.id_empresa, usu.id_perfil, usu.id_usuario
 

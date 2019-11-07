@@ -21,7 +21,7 @@ class Cuenta_ extends CI_Controller {
 
 	public function index(){
 
-        $data['usuario'] = $this->M_cuenta->obtenerMarcas($this->session->userdata('id'));
+        $data['usuario'] = $this->M_cuenta->obtenerMarcas($this->session->userdata('id_cl'));
 
         $cliente = $this->M_cuenta->getCliente($this->session->userdata('id'));
         $row = $cliente->row_array();
@@ -92,7 +92,9 @@ class Cuenta_ extends CI_Controller {
         
 
         $flag = $this->M_cuenta->actualizarUsuario($this->session->userdata('id'),$data);
+
         if ($flag) {
+            //Actualiza el nombre del usuario visualizado en el menú
             $data=["nombre"=>$this->input->post('nombre')];
             $this->session->set_userdata($data);
         }

@@ -25,6 +25,8 @@ class M_cuenta extends CI_Model{
 	public function obtenerMarcas($idUsuario){
 
 		$queryf='select nombre_cliente,apellido_cliente,direccion_cliente,nombre_cult,descripcion_cult,pais_cult,ciudad_cult,coor_marcas,area from tb_cultivo cu, tb_cliente cl, tb_marcas ma where cu.id_cliente='.$idUsuario.' and cu.id_cultivo=ma.id_cultivo GROUP BY cu.id_cultivo';
+
+		$queryf1='select nombre_cliente, apellido_cliente, direccion_cliente, nombre_cult, descripcion_cult, pais_cult, ciudad_cult, coor_marcas, area from tb_cultivo cu, tb_cliente cl, tb_marcas ma where cl.id_cliente ='.$idUsuario.' AND cu.id_cultivo = ma.id_cultivo AND cl.id_cliente=cu.id_cliente GROUP BY cu.id_cultivo';
 		
 		$nombre_cliente		='';
 		$apellido_cliente	='';
@@ -39,7 +41,7 @@ class M_cuenta extends CI_Model{
 
 		$data[] = array();
 
-		$result = $this->db->query($queryf);
+		$result = $this->db->query($queryf1);
 
 		$data_cl = $this->getCliente($idUsuario);
 		
