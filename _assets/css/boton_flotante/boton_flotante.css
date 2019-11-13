@@ -1,0 +1,80 @@
+
+	#container,#boton,#nav{
+		position: fixed;
+	}
+	#container{
+		margin: auto;
+		top: 85%;
+		left: 90%;
+		margin-left: -20px;
+	}
+
+	#toggle{
+		display: none;		
+	}
+	#boton{
+		z-index: 9999;
+		width: 100px;
+		height: 100px;
+		background: #62A6D6;
+		border-radius: 100%;
+		transition: all 0.5s ease-in-out;
+		box-shadow: 1px 3px 10px 0 rgba(0,0,0,0.3);
+		cursor: pointer; 
+	}
+	#boton:before{
+		position: absolute;
+		top: 49px;
+		left: 35px;
+		content: "";
+		width: 30px;
+		height: 4px;
+		background: #ffffff;
+	}
+	#boton:after{
+		position: absolute;
+		top: 49px;
+		left: 35px;
+		content: '';
+		width: 30px;
+		height: 4px;
+		background: #ffffff;
+		transform: rotate(90deg);
+	}
+	#nav{
+		transition: translateY(20%);
+		opacity: 0;
+		top: 85%;
+		left: 80.5%;
+		transition: all 0.5s ease-in-out;
+		background: white;
+		width: 150px;
+		border-radius: 5px;
+		transform: translateY(-60%);
+		box-shadow: 2px 3px 10px 0 rgba(0
+			,0,0,0.1);
+	}
+	#nav a{
+		text-align: center;
+		display: block;
+		margin: 20px;
+		color: #fffff0;
+		text-decoration: none;
+		/*font-weight: bold;*/
+		font-family: sans-serif;
+		/*text-transform: uppercase;*/
+		letter-spacing: 2px;
+	}
+	#toggle:checked ~ #nav{
+		opacity: 1;
+		transform: translateY(-80%);
+		box-shadow: 0 0 0 0 transparent;
+	}
+	#toggle:checked ~ #boton{
+		transform: rotate(135deg);
+		box-shadow: 0 0 0 0 transparent;
+
+	}
+	#nav a:hover{
+		color: white;
+	}

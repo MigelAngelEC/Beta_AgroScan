@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url();?>_assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Boton flotante CSS -->
+    <link href="<?php echo base_url();?>_assets/css/boton_flotante/boton_flotante.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="<?php echo base_url();?>_assets/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->

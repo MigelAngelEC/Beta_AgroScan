@@ -13,6 +13,18 @@
      border:none;
     }
   </style>
+  <!-- leafletjs -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+     crossorigin=""/>
+  <!-- Cultivo.css -->
+  <link rel="stylesheet" type="text/css" href="<?= base_url()?>_assets/css/cultivo/cultivo.css">
+  <!-- Cultivo.js -->
+  <script src="<?php echo base_url();?>_assets/js/cultivo/cultivo.js"></script>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+     crossorigin=""></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123072858-1"></script>
   <script>
@@ -64,7 +76,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url()?>_assets/plantilla/dist/js/demo.js"></script>
 
-  <!--sobreponer imagen-->
+  <!--Sobreponer imagen-->
   <link type="text/css" href="<?php echo base_url();?>_assets/css/sobreponer.css" rel="stylesheet">
   <!-- fin Referencia de plantilla-->
 
@@ -135,10 +147,10 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <script>$("#sliderp").click();</script>
+  <img id='loading' style="display:none" ; />
+  <!--Referencias de edicion usuario-->
+  <script src="<?= base_url()?>_assets/plantilla/dist/js/editarUsuario/validarCampo.js"></script>
+  
 </head>
-<script>
-  $("#sliderp").click();
-</script>
-<img id='loading' style="display:none" ; />
-<!--Referencias de edicion usuario-->
-<script src="<?= base_url()?>_assets/plantilla/dist/js/editarUsuario/validarCampo.js"></script>

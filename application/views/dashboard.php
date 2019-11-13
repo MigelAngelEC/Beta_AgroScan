@@ -53,5 +53,14 @@ foreach ($cultivos as $cultivo){
 }
 ?>
     </div>
+    <!--Boton flotante-->
+    <div class="container" id="container">
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="button btn-primary" id="boton" title="Crear nuevo cultivo"></label>
+        <nav class="nav btn-primary" id="nav">
+            <a href="<?php echo base_url();?>index.php/Cultivo1/Crear">Crear cultivo</a>
+            <a href="<?php echo base_url();?>index.php/Cultivos2">Eliminar cultivo</a>
+        </nav>
+    </div>
 </section>
 
