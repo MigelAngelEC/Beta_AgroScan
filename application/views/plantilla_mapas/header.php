@@ -1,30 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!DOCTYPE html>
+<html>
 <head>
-  <style type="text/css">
-    #contenedor{
-     position: relative;
-    }
-    .sobre {
-     position:absolute;
-     top:0px;
-     left:0px;
-     border:none;
-    }
-  </style>
-  <!-- leafletjs -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-     crossorigin=""/>
-  <!-- Cultivo.css -->
-  <link rel="stylesheet" type="text/css" href="<?= base_url()?>_assets/css/cultivo/cultivo.css">
-  <!-- Cultivo.js -->
-  <script src="<?php echo base_url();?>_assets/js/cultivo/cultivo.js"></script>
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
-   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-     crossorigin=""></script>
+  <!-- p_style - p_style-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url()?>_assets/p_style/p_style.css">
+  <!-- p_style - cultivo.css-->
+  <link rel="stylesheet" type="text/css" href="<?= base_url()?>_assets/p_style/cultivo.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123072858-1"></script>
   <script>
@@ -44,21 +27,8 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximumscale=1.0, user-scalable=no" />
   <title>AGROCLOUD - Tu cultivo en la nube</title>
+  <!-- Icon -->
   <link rel="shortcut icon" href="<?php echo base_url();?>_assets/img/agrocloud.ico" type="image/vnd.microsoft.icon">
-
-
-  <!--mapa-->
-  <script src="https://cdn3.devexpress.com/jslib/19.1.6/js/dx.all.js"></script>
-  <script src="<?php echo base_url();?>_assets/plantilla/dist/js/marker/marker.js"></script>
-  
-  <script>
-    // Basic example
-      $(document).ready(function () {
-      $('#dtBasicExample').DataTable( { "searching": true,"pageLength": 2});
-      $('.dataTables_length').addClass('bs-select');
-    });
-  </script>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url()?>_assets/plantilla/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -69,18 +39,11 @@
   <link rel="shortcut icon" href="<?php echo base_url();?>_assets/plantilla/dist/img/avatar.png" type="image/vnd.microsoft.icon">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- Bootstrap 4 -->
-  <script src="<?= base_url()?>_assets/plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="<?= base_url()?>_assets/plantilla/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="<?= base_url()?>_assets/plantilla/dist/js/demo.js"></script>
-
-  <!--Sobreponer imagen-->
-  <link type="text/css" href="<?php echo base_url();?>_assets/css/sobreponer.css" rel="stylesheet">
+  <!--p_assets - Sobreponer imagen-->
+  <link type="text/css" href="<?php echo base_url();?>_assets/p_assets/css/sobreponer.css" rel="stylesheet">
+  <!--p_assets - cultivo-->
+  <link type="text/css" href="<?php echo base_url();?>_assets/p_assets/css/cultivo.css" rel="stylesheet">
   <!-- fin Referencia de plantilla-->
-
-
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDZqQIEyDlpqcYQ79AqZA9vt9-LnRzWZ0" async defer>
   </script>
   <!-- Font Awesome -->
@@ -114,6 +77,7 @@
   <link href="<?php echo base_url();?>_assets/css/agroStyle.css" rel="stylesheet">
   <!--  styles leaflet-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <!--  JS leaflet-->
   <script src="<?php echo base_url();?>_assets/js/_map_js/leaflet.js"></script>
   <link rel="stylesheet" href="<?php echo base_url();?>_assets/css/_map_css/mouse.position/mousePosition.css" />
   <link rel="stylesheet" href="<?php echo base_url();?>_assets/css/_map_css/measure/measure.css">
@@ -125,6 +89,22 @@
     href="https://rawgit.com/MarcChasse/leaflet.ScaleFactor/master/leaflet.scalefactor.min.css">
   <!--  styles draw.pm-->
   <link rel="stylesheet" href="<?php echo base_url();?>_assets/css/_map_css/leaflet.pm/leaflet.pm.css" />
+  <!--  styles draw.pm-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+
+
+
+
+
+
+
+
+
+
+
   <!--  toastr-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->

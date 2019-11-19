@@ -1,54 +1,36 @@
-<body>
+
+	<style type="text/css">
+		#elegir{
+			transition: translateY(20%);
+			top: 85%;
+			left: 80.5%;
+		}
+	</style>
 	<div class="container">
 		<div class="container-fluid">
 			<div class="card">
 				<div class="card-header">
-					<h1>Crear cultivo</h1>
+					<center><h1>Crear cultivo</h1></center>
 				</div>
 				<div class="card-body">
-					<div id="mapid"></div>
+					<div id="mapid">
+						<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+							<form id="elegir">
+								<div class="form-check">
+								    <input type="checkbox" class="radio form-check-input" id="c_marcador" name="fooby[2][]">
+								    <label class="form-check-label" for="c_marcador">Crear marcador&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								    <input type="checkbox" class="radio form-check-input" id="c_poligono" name="fooby[2][]">
+								    <label class="form-check-label" for="c_poligono">Crear polígono&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br>
+								    <input type="checkbox" class="radio form-check-input" id="c_circulo" name="fooby[2][]">
+								    <label class="form-check-label" for="c_circulo">Crear Circulo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								    <input type="checkbox" class="radio form-check-input" id="done_" name="fooby[2][]">
+								    <label class="form-check-label" for="done_">Listo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br>
+							  	</div>
+							</form>
+						</div>
+					</div>
 				</div>
 				<div class="card-footer"></div>
 			</div>
 		</div>
 	</div>
-</body>
-
-<script type="text/javascript">
-	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets'
-	}).addTo(mymap);
-
-	L.marker([51.5, -0.09]).addTo(mymap)
-		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-	L.circle([51.508, -0.11], 500, {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5
-	}).addTo(mymap).bindPopup("I am a circle.");
-
-	L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).addTo(mymap).bindPopup("I am a polygon.");
-
-
-	var popup = L.popup();
-
-	function onMapClick(e) {
-		popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(mymap);
-	}
-
-	mymap.on('click', onMapClick);
-</script>

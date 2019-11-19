@@ -1,0 +1,9 @@
+#contenedor{
+     position: relative;
+    }
+    .sobre {
+     position:absolute;
+     top:0px;
+     left:0px;
+     border:none;
+    }
