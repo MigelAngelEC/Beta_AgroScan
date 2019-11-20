@@ -3,6 +3,7 @@
       var t=0;
       var geometry = new Array();
       var tmp="";
+      var d="nada";
 
 
       var mymap = L.map('mapid').fitWorld();
@@ -40,8 +41,12 @@
          * Latitud: e.latlng.lat
          * Longuitud: e.latlng.lng 
          */
-         if (cont>1) {
-           switch(ident+"") {
+
+         d=getToDo();
+         if(d=='nada' || d=='nada'){
+         }else{
+           if (cont==9999) {
+           switch(d) {
                 case 'c_marcador':
                 tmp='c_marcador';
                    L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap).bindPopup("<b><input type='text' placeholder='Nombre marcador'></b><br/>I am a popup.").openPopup();
@@ -67,46 +72,39 @@
                       cont=0;
                     
                   break;
-                  case 'done':
-                    if(tmp=="c_poligono"){
+                  case 'done_':
+                      document.getElementById("mapid").style.cursor = "pointer";
+
                       console.log("crear poligono");
                       L.polygon(geometry).addTo(mymap).bindPopup("I am a polygon.");
-                    }
-                    
+
                   break;
                 default:
            }
-          }
+         }
+         }
+           
 
       }
       
-      if(cont==0){
-        $("input:checkbox").on('click', function() {
-            //var ident="";
-            var $box = $(this);
-            if ($box.is(":checked")) {
-              var group = "input:checkbox[name='" + $box.attr("name") + "']";
-              $(group).prop("checked", false);
-              $box.prop("checked", true);
-            } else {
-              $box.prop("checked", false);
-              cont=0;
-            }
-            ident = $(this).attr('id');
-            switch(ident+"") {
-              case 'c_marcador':
-                  cont++;
-                break;
-              case 'c_poligono':
-              cont++;
-                break;
-                case 'c_circulo':
-                cont++;
-                break;
-              default:
-              cont=0;
-            }
-          });
+      function getToDo(){
+          $("input:checkbox").on('click', function() {
+              //var ident="";
+              var $box = $(this);
+              if ($box.is(":checked")) {
+                cont=9999;
+                document.getElementById("mapid").style.cursor = "crosshair";
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+              } else {
+                document.getElementById("mapid").style.cursor = "hand";
+                d='nada';
+                $box.prop("checked", false);
+              }
+              d= $(this).attr('id');
+            });
+          return d;
       }
       
         mymap.on('click', onMapClick);

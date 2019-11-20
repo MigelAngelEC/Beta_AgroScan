@@ -1,3 +1,13 @@
 #mapid { 
 		height: 580px;/* vertical*/
+		/*cursor: crosshair;*/
 	}
+#elegir{
+			position: relative;
+			transition: translateY(20%);
+			top: 5%;
+			left: 85%;
+		}
+#check_box{
+	position: relative;
+}
