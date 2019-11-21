@@ -1,9 +1,10 @@
-      var cont=0;
-      var ident="";
-      var t=0;
+      var chkd=0;
+      var nVertice=0;
       var geometry = new Array();
-      var tmp="";
+      var multipoligon = new Array();
       var d="nada";
+      var tmp=0;
+      var t=0;
 
 
       var mymap = L.map('mapid').fitWorld();
@@ -36,76 +37,93 @@
 
       var popup = L.popup();
 
-      function onMapClick(e) {
-        /*
-         * Latitud: e.latlng.lat
-         * Longuitud: e.latlng.lng 
-         */
+      function onMapDClick(e) {
+        document.getElementById("mapid").style.cursor = "grab";
 
-         d=getToDo();
-         if(d=='nada' || d=='nada'){
-         }else{
-           if (cont==9999) {
-           switch(d) {
-                case 'c_marcador':
-                tmp='c_marcador';
-                   L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap).bindPopup("<b><input type='text' placeholder='Nombre marcador'></b><br/>I am a popup.").openPopup();
-                   cont=0;
-                 
-                  break;
-                case 'c_poligono':
-                tmp='c_poligono';
-                    t++;
-                      var point = [e.latlng.lat,e.latlng.lng];
-                      L.marker([e.latlng.lat, e.latlng.lng]).
-                        addTo(mymap).bindPopup("<b>Vertice: "+t+"</b>").openPopup();
-                      geometry.push(point);
-                    
-                  break;
-                  case 'c_circulo':
-                  tmp='c_circulo';
-                      L.circle([e.latlng.lat, e.latlng.lng], 500, {
-                        color: 'red',
-                        fillColor: '#f03',
-                        fillOpacity: 0.5
-                      }).addTo(mymap).bindPopup("I am a circle.");
-                      cont=0;
-                    
-                  break;
-                  case 'done_':
-                      document.getElementById("mapid").style.cursor = "pointer";
-
-                      console.log("crear poligono");
-                      L.polygon(geometry).addTo(mymap).bindPopup("I am a polygon.");
-
-                  break;
-                default:
-           }
-         }
-         }
-           
-
+      } 
+      function onMapClick(e) { 
+        if(d!='nada'){
+          chkd++;
+          if(chkd>2 && t==0){
+             switch(d) {
+                  case 'c_marcador':
+                        L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap).bindPopup("<b><input type='text' placeholder='Nombre marcador'></b><br/>I am a popup.").openPopup();
+                    break;
+                  case 'c_poligono':
+                        tmp=1;
+                        t=0;
+                        nVertice++;
+                        var point = [e.latlng.lat,e.latlng.lng];
+                        L.marker([e.latlng.lat, e.latlng.lng]).
+                          addTo(mymap).bindPopup("<b>Vertice: "+nVertice+"</b>").openPopup();
+                        geometry.push(point);
+                      
+                    break;
+                    case 'c_circulo':
+                        L.circle([e.latlng.lat, e.latlng.lng], 500, {
+                          color: 'red',
+                          fillColor: '#f03',
+                          fillOpacity: 0.5
+                        }).addTo(mymap).bindPopup("I am a circle.");
+                    break;
+                    case 'done_':
+                        nVertice=0;
+                        if (geometry.length >=3) {
+                          multipoligon.push(geometry);
+                          L.polygon(geometry).addTo(mymap).bindPopup("I am a polygon.");
+                        }
+                        geometry=[];
+                        //tmp=0;
+                        t=1;
+                    break;
+                  default:
+             }
+          }else{
+            t=0;
+          }
+        }
       }
-      
-      function getToDo(){
-          $("input:checkbox").on('click', function() {
-              //var ident="";
-              var $box = $(this);
-              if ($box.is(":checked")) {
-                cont=9999;
-                document.getElementById("mapid").style.cursor = "crosshair";
-                var group = "input:checkbox[name='" + $box.attr("name") + "']";
-                $(group).prop("checked", false);
-                $box.prop("checked", true);
-              } else {
-                document.getElementById("mapid").style.cursor = "hand";
-                d='nada';
-                $box.prop("checked", false);
-              }
-              d= $(this).attr('id');
-            });
-          return d;
-      }
+      /*Calculo del area de polígono*/
+
+      function calcPolygonArea() { 
+
+        var total = 0; 
+        for (var i = 0, l = geometry.length; i < l; i++) { 
+          var addX = geometry[i].x; 
+          var addY = geometry[i == geometry.length - 1 ? 0 : i + 1].y; 
+          var subX = geometry[i == geometry.length - 1 ? 0 : i + 1].x; 
+          var subY = geometry[i].y; total += (addX * addY * 0.5); 
+          total -= (subX * subY * 0.5); 
+        } 
+          area= Math.abs(total); 
+          return area;
+      } 
+
+
+      $("input:checkbox").on('click', function() {
+          //var ident="";
+          var $box = $(this);
+          if ($box.is(":checked")) {
+            chkd=1;
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop("checked", false);
+            $box.prop("checked", true);
+            document.getElementById("mapid").style.cursor = "crosshair";
+            if (tmp==1) {
+              chkd++;
+            }
+            
+          } else {
+            document.getElementById("mapid").style.cursor = "grab";
+            d='nada';
+            tmp=0;
+            $box.prop("checked", false);
+          }
+          d= $(this).attr('id');
+        });
       
         mymap.on('click', onMapClick);
+
+        mymap.on('dblclick', onMapDClick);
+
       
