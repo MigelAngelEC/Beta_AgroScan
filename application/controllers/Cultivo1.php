@@ -52,6 +52,9 @@ class Cultivo1 extends CI_Controller {
         $this->load->view('plantilla_mapas/footer');
     }
 
+    public function prueba(){
+        $this->load->view('validar-registro/p');
+    }
 
 
 }
